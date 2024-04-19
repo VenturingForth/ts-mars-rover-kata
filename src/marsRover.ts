@@ -27,11 +27,37 @@ export class Rover {
     }
 
     rotateLeft(): void {
-
+        switch(this.facing){
+            case "N":
+                this.facing = "W";
+                break;
+            case "E":
+                this.facing = "N";
+                break;
+            case "S":
+                this.facing = "E";
+                break;
+            case "W":
+                this.facing = "S";
+                break;
+        }
     }
 
     rotateRight(): void {
-
+        switch(this.facing){
+            case "N":
+                this.facing = "E";
+                break;
+            case "E":
+                this.facing = "S";
+                break;
+            case "S":
+                this.facing = "W";
+                break;
+            case "W":
+                this.facing = "N";
+                break;
+        }
     }
 
     getPosition(): string {
@@ -42,6 +68,12 @@ export class Rover {
         for (let i: number = 0; i < instruction.length; i++){
             if (instruction[i] === "M"){
                 this.move();
+            }
+            if (instruction[i] === "L"){
+                this.rotateLeft();
+            }
+            if (instruction[i] === "R"){
+                this.rotateRight();
             }
         }
     }

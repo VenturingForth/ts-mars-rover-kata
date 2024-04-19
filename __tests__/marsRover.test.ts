@@ -24,6 +24,21 @@ describe("Mars Rover Kata Tests", () => {
         const rover = new Rover;
         const instruction: string = "L"
         //act
+        rover.operateMarsRover(instruction);
+        //assert
+        expect(rover.getPosition()).toBe("0:0:W")
+    })
+    test("An instruction of 'R' should rotate the facing of the rover by 90 degrees to the right", () => {
+        //arrange
+        const rover = new Rover;
+        const instruction: string = "R"
+        //act
+        rover.operateMarsRover(instruction);
+        //assert
+        expect(rover.getPosition()).toBe("0:0:E");
+    })
+    test("A combined movement and rotation instruction should return the correct coordinates and facing of the rover", () => {
+        //arrange
         
     })
 })
